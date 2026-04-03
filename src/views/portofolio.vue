@@ -95,7 +95,7 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.full-content { width: 100%; height: 100%; overflow-y: auto; text-align: left; }
+.full-content { width: 100%; height: auto; overflow-y: visible; text-align: left; }
 .content-padding { padding: 40px 50px 40px; }
 .title-border { font-size: 20px; color: #1e293b; border-left: 6px solid #626aef; padding-left: 15px; margin-bottom: 25px; }
 
