@@ -20,7 +20,7 @@
 </template>
 
 <style>
-body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #0b0f19; overflow-x: hidden; }
+body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #0b0f19; overflow-x: hidden; width: 100%; }
 
 .app-viewport {
   min-height: 100vh;
@@ -30,7 +30,7 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; backgrou
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 .blob, .blob2 { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.15; z-index: 1; }
@@ -42,45 +42,37 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; backgrou
 .glass-nav {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
-  padding: 12px 30px;
+  padding: 10px 20px;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
+  display: flex; gap: 10px; margin-bottom: 25px;
 }
-.nav-link { text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 13px; font-weight: 700; padding: 8px 20px; border-radius: 30px; transition: 0.3s; }
-.nav-link:hover { background: rgba(255, 255, 255, 0.05); color: white; }
+.nav-link { text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 12px; font-weight: 700; padding: 8px 18px; border-radius: 30px; transition: 0.3s; }
 .router-link-active { background-color: #626aef; color: white; box-shadow: 0 4px 15px rgba(98, 106, 239, 0.4); }
 
 .mega-card {
   width: 1300px;
-  min-height: 750px;
+  height: auto;
+  min-height: 600px;
   background: #ffffff;
-  border-radius: 30px;
+  /* Melengkung hanya bagian atas */
+  border-radius: 30px 30px 0 0; 
   box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column; 
+  overflow: hidden; /* Menghilangkan scroll dalam kotak */
   position: relative;
 }
 
 .simple-footer {
-  margin-top: auto;
-  width: 100%;
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  padding: 15px 0;
-  text-align: center;
+  margin-top: auto; width: 100%; background: #f8fafc; border-top: 1px solid #e2e8f0; padding: 15px 0; text-align: center;
 }
-.simple-footer p { margin: 0; font-size: 11px; color: #94a3b8; }
+.simple-footer p { margin: 0; font-size: 10px; color: #94a3b8; }
 
 @media (max-width: 1350px) {
-  .mega-card { width: 95%; }
+  .mega-card { width: 95%; margin: 0 auto; }
 }
-
 @media (max-width: 768px) {
   .app-viewport { padding: 20px 0; }
-  .glass-nav { width: 90%; padding: 10px; gap: 5px; justify-content: center; }
-  .nav-link { font-size: 11px; padding: 6px 12px; }
+  .glass-nav { width: 85%; }
 }
 </style>

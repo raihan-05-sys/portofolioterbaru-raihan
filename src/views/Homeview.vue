@@ -4,9 +4,9 @@
       
       <div class="sidebar-internal">
         <div class="profile-header">
-          <el-avatar :size="160" src="/foto-profil.jpeg" class="profile-img" style="border: 4px solid #626aef; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
+          <el-avatar :size="150" src="/foto-profil.jpeg" class="profile-img" style="border: 4px solid #626aef; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
           <h1 class="name-text">{{ profile.nama }}</h1>
-          <el-tag effect="dark" round class="tag-major">{{ profile.jurusan }}</el-tag>
+          <el-tag effect="dark" round size="small">{{ profile.jurusan }}</el-tag>
           <div class="nim-badge">NIM: {{ profile.nim }}</div>
         </div>
 
@@ -19,7 +19,7 @@
 
         <el-divider>Hobi</el-divider>
         <div class="hobby-tags">
-          <el-tag v-for="h in ['Voli', 'Futsal', 'Bulu Tangkis']" :key="h" effect="plain" round class="h-tag">{{ h }}</el-tag>
+          <el-tag v-for="h in ['Voli', 'Futsal', 'Bulu Tangkis']" :key="h" effect="plain" round size="small">{{ h }}</el-tag>
         </div>
       </div>
 
@@ -42,6 +42,7 @@
           </el-timeline-item>
         </el-timeline>
       </div>
+
     </div>
   </div>
 </template>
@@ -73,28 +74,29 @@ const pendidikan = [
 </script>
 
 <style scoped>
-.full-content { width: 100%; height: auto; }
-.mega-card-inner { display: flex; width: 100%; min-height: 750px; }
+.full-content { width: 100%; height: auto; overflow: visible; }
+.mega-card-inner { display: flex; width: 100%; height: auto; }
 
 .sidebar-internal { width: 350px; min-width: 350px; background: #f8fafc; padding: 40px 20px; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.name-text { font-size: 20px; font-weight: 900; color: #0f172a; margin: 20px 0 8px; line-height: 1.2; }
-.nim-badge { font-weight: 800; color: #64748b; font-size: 14px; margin-top: 5px; }
-.contact-list { text-align: left; width: 100%; font-size: 13px; color: #475569; }
-.hobby-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.name-text { font-size: 18px; font-weight: 900; color: #0f172a; margin: 15px 0 8px; line-height: 1.2; text-transform: uppercase; }
+.nim-badge { font-weight: 800; color: #64748b; font-size: 13px; margin-top: 5px; }
+.contact-list { text-align: left; width: 100%; font-size: 12px; color: #475569; }
+.hobby-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
 
-.content-area-internal { flex: 1; padding: 40px 50px; text-align: left; background: white; }
-.title-border { font-size: 20px; color: #1e293b; border-left: 6px solid #626aef; padding-left: 15px; margin-bottom: 25px; }
+.content-area-internal { flex: 1; padding: 40px 50px; text-align: left; background: white; width: 100%; box-sizing: border-box; }
+.title-border { font-size: 18px; color: #1e293b; border-left: 6px solid #626aef; padding-left: 15px; margin-bottom: 25px; }
+
 .info-grid-modern { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .info-card-modern { background: white; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px; }
-.info-icon { font-size: 14px; color: #626aef; }
 .info-text { display: flex; flex-direction: column; gap: 2px; }
-.info-text span { font-size: 9px; color: #94a3b8; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
-.info-text strong { font-size: 13px; color: #1e293b; line-height: 1.2; }
+.info-text span { font-size: 9px; color: #94a3b8; font-weight: 700; text-transform: uppercase; }
+.info-text strong { font-size: 13px; color: #1e293b; line-height: 1.3; word-break: break-word; }
 .mt-35 { margin-top: 35px; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .mega-card-inner { flex-direction: column; }
-  .sidebar-internal { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; }
+  .sidebar-internal { width: 100%; min-width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; box-sizing: border-box; }
+  .content-area-internal { padding: 30px 20px; width: 100%; }
   .info-grid-modern { grid-template-columns: 1fr; }
 }
 
