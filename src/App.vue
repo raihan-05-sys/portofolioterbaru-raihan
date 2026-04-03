@@ -55,11 +55,11 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; backgrou
   height: auto;
   min-height: 600px;
   background: #ffffff;
-  /* Melengkung hanya bagian atas */
-  border-radius: 30px 30px 0 0; 
+  /* Atas & Bawah Melengkung Sempurna */
+  border-radius: 30px; 
   box-shadow: 0 25px 50px rgba(0,0,0,0.15);
   display: flex; flex-direction: column; 
-  overflow: hidden; /* Menghilangkan scroll dalam kotak */
+  overflow: hidden; /* KUNCI: Menghapus toolbar ganda */
   position: relative;
 }
 
@@ -69,7 +69,7 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; backgrou
 .simple-footer p { margin: 0; font-size: 10px; color: #94a3b8; }
 
 @media (max-width: 1350px) {
-  .mega-card { width: 95%; margin: 0 auto; }
+  .mega-card { width: 95%; margin: 0 auto; border-radius: 25px; }
 }
 @media (max-width: 768px) {
   .app-viewport { padding: 20px 0; }

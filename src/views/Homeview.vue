@@ -27,7 +27,10 @@
         <h2 class="title-border">Detail Informasi Pribadi</h2>
         <div class="info-grid-modern">
           <div class="info-card-modern" v-for="(val, label) in infoDetails" :key="label">
-            <div class="info-icon">🔹</div>
+            <img v-if="label === 'Tempat, Tanggal Lahir'" src="https://img.icons8.com/?size=100&id=42220&format=png" class="icons-list">
+            <img v-if="label === 'Jenis Kelamin'" src="https://img.icons8.com/?size=100&id=D06tS9n0T7Fm&format=png" class="icons-list">
+            <img v-if="label === 'Agama'" src="https://img.icons8.com/?size=100&id=S8r5mR6N4XW5&format=png" class="icons-list">
+            <img v-if="label === 'Status'" src="https://img.icons8.com/?size=100&id=fOqFh4fC8A7V&format=png" class="icons-list">
             <div class="info-text">
               <span>{{ label }}</span>
               <strong>{{ val }}</strong>
@@ -50,53 +53,41 @@
 <script setup>
 import { reactive } from 'vue'
 const profile = reactive({
-  nama: 'NURSETO RAIHAN PRASETYO',
-  nim: '12450112377',
-  gender: 'Laki-laki',
-  ttl: 'Rambah Utama, 09 Juli 2005',
-  agama: 'Islam',
-  hp: '082284773045',
-  email: 'raihan1212@gmail.com',
-  jurusan: 'S1 Teknik Informatika'
+  nama: 'NURSETO RAIHAN PRASETYO', nim: '12450112377', gender: 'Laki-laki',
+  ttl: 'Rambah Utama, 09 Juli 2005', agama: 'Islam', hp: '082284773045',
+  email: 'raihan1212@gmail.com', jurusan: 'S1 Teknik Informatika'
 })
-const infoDetails = {
-  'Tempat, Tanggal Lahir': profile.ttl,
-  'Jenis Kelamin': profile.gender,
-  'Agama': profile.agama,
-  'Status': 'Mahasiswa Aktif'
+const infoDetails = { 
+  'Tempat, Tanggal Lahir': profile.ttl, 'Jenis Kelamin': profile.gender, 
+  'Agama': profile.agama, 'Status': 'Mahasiswa Aktif' 
 }
 const pendidikan = [
-  { level: 'SD', title: 'SDN 006 Ujungbatu' },
-  { level: 'SMP', title: 'SMPN 1 Ujungbatu' },
-  { level: 'SMA', title: 'SMA N 1 Ujungbatu' },
-  { level: 'Kuliah', title: 'UIN SUSKA RIAU' }
+  { level: 'SD', title: 'SDN 006 Ujungbatu' }, { level: 'SMP', title: 'SMPN 1 Ujungbatu' },
+  { level: 'SMA', title: 'SMA N 1 Ujungbatu' }, { level: 'Kuliah', title: 'UIN SUSKA RIAU' }
 ]
 </script>
 
 <style scoped>
 .full-content { width: 100%; height: auto; overflow: visible; }
 .mega-card-inner { display: flex; width: 100%; height: auto; }
-
 .sidebar-internal { width: 350px; min-width: 350px; background: #f8fafc; padding: 40px 20px; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.name-text { font-size: 18px; font-weight: 900; color: #0f172a; margin: 15px 0 8px; line-height: 1.2; text-transform: uppercase; }
-.nim-badge { font-weight: 800; color: #64748b; font-size: 13px; margin-top: 5px; }
-.contact-list { text-align: left; width: 100%; font-size: 12px; color: #475569; }
+.name-text { font-size: 18px; font-weight: 900; color: #0f172a; margin: 15px 0 8px; text-transform: uppercase; }
+.nim-badge { font-weight: 800; color: #64748b; font-size: 13px; }
+.contact-list { text-align: left; width: 100%; font-size: 12px; }
 .hobby-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-
 .content-area-internal { flex: 1; padding: 40px 50px; text-align: left; background: white; width: 100%; box-sizing: border-box; }
 .title-border { font-size: 18px; color: #1e293b; border-left: 6px solid #626aef; padding-left: 15px; margin-bottom: 25px; }
-
 .info-grid-modern { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .info-card-modern { background: white; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px; }
-.info-text { display: flex; flex-direction: column; gap: 2px; }
+.icons-list { width: 25px; height: 25px; }
+.info-text { display: flex; flex-direction: column; }
 .info-text span { font-size: 9px; color: #94a3b8; font-weight: 700; text-transform: uppercase; }
-.info-text strong { font-size: 13px; color: #1e293b; line-height: 1.3; word-break: break-word; }
+.info-text strong { font-size: 13px; color: #1e293b; word-break: break-word; }
 .mt-35 { margin-top: 35px; }
 
 @media (max-width: 1024px) {
   .mega-card-inner { flex-direction: column; }
-  .sidebar-internal { width: 100%; min-width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; box-sizing: border-box; }
-  .content-area-internal { padding: 30px 20px; width: 100%; }
+  .sidebar-internal { width: 100%; min-width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; }
   .info-grid-modern { grid-template-columns: 1fr; }
 }
 
