@@ -22,18 +22,19 @@
 
 <style>
 /* Reset Global */
-body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; overflow: hidden; height: 100vh; width: 100vw; }
+body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #0b0f19; }
 
 /* Latar Gelap Total */
 .app-viewport {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   background-color: #0b0f19;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px 0;
 }
 
 /* Hiasan Blobs */
@@ -42,7 +43,7 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; overflow
 .blob2 { width: 350px; height: 350px; background-color: #ec4899; bottom: -80px; left: -80px; }
 
 /* Layout Mewah */
-.main-layout { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; }
+.main-layout { width: 100%; display: flex; flex-direction: column; align-items: center; z-index: 2; }
 
 /* Navigasi Melayang */
 .glass-nav {
@@ -62,7 +63,7 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; overflow
 /* Kotak Mega Card (Latar Putih) */
 .mega-card {
   width: 1300px;
-  height: 720px;
+  min-height: 720px;
   background: #ffffff;
   border-radius: 30px;
   box-shadow: 0 25px 50px rgba(0,0,0,0.15);
@@ -72,7 +73,6 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; overflow
   position: relative;
 }
 
-/* Footer di App.vue */
 .simple-footer {
   margin-top: auto;
   width: 100%;
@@ -82,9 +82,15 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; overflow
   text-align: center;
 }
 .simple-footer p { margin: 0; font-size: 11px; color: #94a3b8; }
-.simple-footer strong { color: #626aef; }
 
-/* Animasi Muncul */
-.fade-in { animation: fadeIn 0.4s ease-out; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* --- KODE KHUSUS HP (RESPONSIVE) --- */
+@media (max-width: 1350px) {
+  .mega-card { width: 95%; height: auto; margin-bottom: 20px; }
+  .app-viewport { padding: 20px 0; }
+}
+
+@media (max-width: 768px) {
+  .glass-nav { width: 90%; padding: 10px; gap: 5px; justify-content: center; }
+  .nav-link { font-size: 11px; padding: 6px 12px; }
+}
 </style>
