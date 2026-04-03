@@ -26,16 +26,39 @@
       <div class="content-area-internal">
         <h2 class="title-border">Detail Informasi Pribadi</h2>
         <div class="info-grid-modern">
-          <div class="info-card-modern" v-for="(val, label) in infoDetails" :key="label">
-            <img v-if="label === 'Tempat, Tanggal Lahir'" src="https://img.icons8.com/?size=100&id=42220&format=png" class="icons-list">
-            <img v-if="label === 'Jenis Kelamin'" src="https://img.icons8.com/?size=100&id=D06tS9n0T7Fm&format=png" class="icons-list">
-            <img v-if="label === 'Agama'" src="https://img.icons8.com/?size=100&id=S8r5mR6N4XW5&format=png" class="icons-list">
-            <img v-if="label === 'Status'" src="https://img.icons8.com/?size=100&id=fOqFh4fC8A7V&format=png" class="icons-list">
+          
+          <div class="info-card-modern">
+            <img src="https://img.icons8.com/color/96/calendar--v1.png" class="icons-list">
             <div class="info-text">
-              <span>{{ label }}</span>
-              <strong>{{ val }}</strong>
+              <span>Tempat, Tanggal Lahir</span>
+              <strong>{{ profile.ttl }}</strong>
             </div>
           </div>
+
+          <div class="info-card-modern">
+            <img src="https://img.icons8.com/color/96/gender-neutral-user.png" class="icons-list">
+            <div class="info-text">
+              <span>Jenis Kelamin</span>
+              <strong>{{ profile.gender }}</strong>
+            </div>
+          </div>
+
+          <div class="info-card-modern">
+            <img src="https://img.icons8.com/color/96/mosque.png" class="icons-list">
+            <div class="info-text">
+              <span>Agama</span>
+              <strong>{{ profile.agama }}</strong>
+            </div>
+          </div>
+
+          <div class="info-card-modern">
+            <img src="https://img.icons8.com/color/96/student-male--v1.png" class="icons-list">
+            <div class="info-text">
+              <span>Status</span>
+              <strong>Mahasiswa Aktif</strong>
+            </div>
+          </div>
+
         </div>
 
         <h2 class="title-border mt-35">Riwayat Pendidikan</h2>
@@ -57,10 +80,6 @@ const profile = reactive({
   ttl: 'Rambah Utama, 09 Juli 2005', agama: 'Islam', hp: '082284773045',
   email: 'raihan1212@gmail.com', jurusan: 'S1 Teknik Informatika'
 })
-const infoDetails = { 
-  'Tempat, Tanggal Lahir': profile.ttl, 'Jenis Kelamin': profile.gender, 
-  'Agama': profile.agama, 'Status': 'Mahasiswa Aktif' 
-}
 const pendidikan = [
   { level: 'SD', title: 'SDN 006 Ujungbatu' }, { level: 'SMP', title: 'SMPN 1 Ujungbatu' },
   { level: 'SMA', title: 'SMA N 1 Ujungbatu' }, { level: 'Kuliah', title: 'UIN SUSKA RIAU' }
@@ -79,7 +98,7 @@ const pendidikan = [
 .title-border { font-size: 18px; color: #1e293b; border-left: 6px solid #626aef; padding-left: 15px; margin-bottom: 25px; }
 .info-grid-modern { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .info-card-modern { background: white; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px; }
-.icons-list { width: 25px; height: 25px; }
+.icons-list { width: 30px; height: 30px; } /* Ukuran ikon gambar */
 .info-text { display: flex; flex-direction: column; }
 .info-text span { font-size: 9px; color: #94a3b8; font-weight: 700; text-transform: uppercase; }
 .info-text strong { font-size: 13px; color: #1e293b; word-break: break-word; }
