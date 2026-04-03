@@ -11,7 +11,6 @@
 
       <div class="mega-card">
         <router-view></router-view>
-        
         <div class="simple-footer">
           <p>© 2026 <strong>Nurseto Raihan Prasetyo</strong> - Informatics Engineering</p>
         </div>
@@ -21,31 +20,25 @@
 </template>
 
 <style>
-/* Reset Global */
-body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #0b0f19; }
+body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #0b0f19; overflow-x: hidden; }
 
-/* Latar Gelap Total */
 .app-viewport {
   min-height: 100vh;
   width: 100%;
   background-color: #0b0f19;
   position: relative;
-  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 50px 0;
 }
 
-/* Hiasan Blobs */
 .blob, .blob2 { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.15; z-index: 1; }
 .blob { width: 400px; height: 400px; background-color: #626aef; top: -100px; right: -100px; }
 .blob2 { width: 350px; height: 350px; background-color: #ec4899; bottom: -80px; left: -80px; }
 
-/* Layout Mewah */
 .main-layout { width: 100%; display: flex; flex-direction: column; align-items: center; z-index: 2; }
 
-/* Navigasi Melayang */
 .glass-nav {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
@@ -60,36 +53,33 @@ body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; backgrou
 .nav-link:hover { background: rgba(255, 255, 255, 0.05); color: white; }
 .router-link-active { background-color: #626aef; color: white; box-shadow: 0 4px 15px rgba(98, 106, 239, 0.4); }
 
-/* Kotak Mega Card (Latar Putih) */
 .mega-card {
   width: 1300px;
-  min-height: 720px;
+  min-height: 750px;
   background: #ffffff;
   border-radius: 30px;
   box-shadow: 0 25px 50px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
 }
 
 .simple-footer {
   margin-top: auto;
   width: 100%;
-  background: rgba(248, 250, 252, 0.9);
+  background: #f8fafc;
   border-top: 1px solid #e2e8f0;
   padding: 15px 0;
   text-align: center;
 }
 .simple-footer p { margin: 0; font-size: 11px; color: #94a3b8; }
 
-/* --- KODE KHUSUS HP (RESPONSIVE) --- */
 @media (max-width: 1350px) {
-  .mega-card { width: 95%; height: auto; margin-bottom: 20px; }
-  .app-viewport { padding: 20px 0; }
+  .mega-card { width: 95%; }
 }
 
 @media (max-width: 768px) {
+  .app-viewport { padding: 20px 0; }
   .glass-nav { width: 90%; padding: 10px; gap: 5px; justify-content: center; }
   .nav-link { font-size: 11px; padding: 6px 12px; }
 }

@@ -6,11 +6,8 @@
         <div class="profile-header">
           <el-avatar :size="160" src="/foto-profil.jpeg" class="profile-img" style="border: 4px solid #626aef; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" />
           <h1 class="name-text">{{ profile.nama }}</h1>
-          
-          <div class="center-content">
-            <el-tag effect="dark" round class="tag-major">{{ profile.jurusan }}</el-tag>
-            <div class="nim-badge">NIM: {{ profile.nim }}</div>
-          </div>
+          <el-tag effect="dark" round class="tag-major">{{ profile.jurusan }}</el-tag>
+          <div class="nim-badge">NIM: {{ profile.nim }}</div>
         </div>
 
         <el-divider>Kontak</el-divider>
@@ -22,16 +19,14 @@
 
         <el-divider>Hobi</el-divider>
         <div class="hobby-tags">
-          <el-tag v-for="h in ['Voli', 'Futsal', 'Bulu Tangkis']" :key="h" effect="plain" round class="h-tag">
-            {{ h }}
-          </el-tag>
+          <el-tag v-for="h in ['Voli', 'Futsal', 'Bulu Tangkis']" :key="h" effect="plain" round class="h-tag">{{ h }}</el-tag>
         </div>
       </div>
 
       <div class="content-area-internal">
         <h2 class="title-border">Detail Informasi Pribadi</h2>
         <div class="info-grid-modern">
-          <div class="info-card-modern" v-for="(val, label) in { 'Tempat, Tanggal Lahir': profile.ttl, 'Jenis Kelamin': profile.gender, 'Agama': profile.agama, 'Status': 'Mahasiswa Aktif' }" :key="label">
+          <div class="info-card-modern" v-for="(val, label) in infoDetails" :key="label">
             <div class="info-icon">🔹</div>
             <div class="info-text">
               <span>{{ label }}</span>
@@ -47,14 +42,12 @@
           </el-timeline-item>
         </el-timeline>
       </div>
-
     </div>
   </div>
 </template>
 
 <script setup>
 import { reactive } from 'vue'
-
 const profile = reactive({
   nama: 'NURSETO RAIHAN PRASETYO',
   nim: '12450112377',
@@ -65,7 +58,12 @@ const profile = reactive({
   email: 'raihan1212@gmail.com',
   jurusan: 'S1 Teknik Informatika'
 })
-
+const infoDetails = {
+  'Tempat, Tanggal Lahir': profile.ttl,
+  'Jenis Kelamin': profile.gender,
+  'Agama': profile.agama,
+  'Status': 'Mahasiswa Aktif'
+}
 const pendidikan = [
   { level: 'SD', title: 'SDN 006 Ujungbatu' },
   { level: 'SMP', title: 'SMPN 1 Ujungbatu' },
@@ -75,30 +73,28 @@ const pendidikan = [
 </script>
 
 <style scoped>
-.full-content { width: 100%; height: 100%; }
-.mega-card-inner { display: flex; min-height: 100%; width: 100%; }
+.full-content { width: 100%; height: auto; }
+.mega-card-inner { display: flex; width: 100%; min-height: 750px; }
 
-/* Sidebar */
-.sidebar-internal { width: 350px; background: #f8fafc; padding: 40px 20px; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.sidebar-internal { width: 350px; min-width: 350px; background: #f8fafc; padding: 40px 20px; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .name-text { font-size: 20px; font-weight: 900; color: #0f172a; margin: 20px 0 8px; line-height: 1.2; }
-.nim-badge { font-weight: 800; color: #64748b; font-size: 14px; }
+.nim-badge { font-weight: 800; color: #64748b; font-size: 14px; margin-top: 5px; }
 .contact-list { text-align: left; width: 100%; font-size: 13px; color: #475569; }
 .hobby-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 
-/* Konten Utama */
-.content-area-internal { flex: 1; padding: 40px; text-align: left; background: white; }
+.content-area-internal { flex: 1; padding: 40px 50px; text-align: left; background: white; }
 .title-border { font-size: 20px; color: #1e293b; border-left: 6px solid #626aef; padding-left: 15px; margin-bottom: 25px; }
-.info-grid-modern { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.info-grid-modern { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .info-card-modern { background: white; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px; }
-.info-text span { font-size: 10px; color: #94a3b8; font-weight: 700; text-transform: uppercase; }
-.info-text strong { font-size: 14px; color: #1e293b; }
+.info-icon { font-size: 14px; color: #626aef; }
+.info-text { display: flex; flex-direction: column; gap: 2px; }
+.info-text span { font-size: 9px; color: #94a3b8; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+.info-text strong { font-size: 13px; color: #1e293b; line-height: 1.2; }
 .mt-35 { margin-top: 35px; }
 
-/* --- KODE KHUSUS HP (MEDIA QUERY) --- */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .mega-card-inner { flex-direction: column; }
-  .sidebar-internal { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; padding: 30px 20px; }
-  .content-area-internal { padding: 30px 20px; }
+  .sidebar-internal { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; }
   .info-grid-modern { grid-template-columns: 1fr; }
 }
 
